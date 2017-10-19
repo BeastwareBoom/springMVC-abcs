@@ -40,4 +40,20 @@ public class JsonAction {
 		persons.put("vin", new Person("vintage", 20000.0));
 		return persons;
 	}
+
+	// datagrid
+	@RequestMapping("/datagrid")
+	public @ResponseBody Map<String, Object> datagrid() throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Person> persons = new ArrayList<Person>();
+		persons.add(new Person("kiki", 10000.0));
+		persons.add(new Person("vintage", 20000.0));
+		persons.add(new Person("jordan", 10000.0));
+		persons.add(new Person("bryant", 20000.0));
+		persons.add(new Person("james", 10000.0));
+		persons.add(new Person("rose", 20000.0));
+		map.put("total", persons.size());
+		map.put("rows", persons);
+		return map;
+	}
 }
