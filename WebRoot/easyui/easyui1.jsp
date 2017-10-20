@@ -63,8 +63,32 @@
 							data-options="iconCls:'icon-remove'">删除部门</a><p>  
 				    </div>   
 				    <div title="人事管理" data-options="iconCls:'icon-reload'" style="padding:10px;">   
-				        人事管理    
-				    </div>   
+						<!-- tree树 -->		        
+		   				<ul id="treeID" class="easyui-tree" data-options="lines:true">   
+						   <li>
+								<span>增加人事</span>
+						   </li>
+						   <li>
+						   		<span>查询人事</span>
+						   		<ul>
+						   			<li>
+						   				<span>分页查询人事</span>
+						   				<ul>
+						   					<li>
+						   						<span>模糊分页查询人事</span>
+						   					</li>
+						   					<li>
+						   						<span>精确分页查询人事</span>
+						   					</li>
+						   				</ul>
+						   			</li>
+						   			<li>
+						   				<span>查询所有人事</span>
+						   			</li>
+						   		</ul>
+						   </li>
+						</ul>
+				    </div>    
 				    <div title="客户管理" data-options="iconCls:'icon-reload'" style="padding:10px;">   
 				        客户管理    
 				    </div> 
@@ -130,7 +154,33 @@
 			});
 		</script>
 
-
+		<script type="text/javascript">
+			$(function(){
+				//收起所有的选项
+				$("#treeID").tree("collapseAll");
+			});
+			
+			$("#treeID").tree({
+				onClick : function(node){
+					//获取点击树节点的文本
+					var title = node.text;
+					//去空格
+					title = $.trim(title);
+					//产生tab选项卡
+					var flag = $("#tabsID").tabs("exists",title);
+					//如果没有打开的话
+					if(!flag){
+						//打开选项卡
+						$("#tabsID").tabs("add",{
+							"title" : title,
+							"closable" : true,
+							"href" : "${pageContext.request.contextPath}/easyui/datagrid.jsp",
+							"iconCls" : "icon-search"
+						});
+					}	
+				}
+			});
+		</script>
 
   </body>
 </html>

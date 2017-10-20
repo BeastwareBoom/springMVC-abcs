@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<link rel="stylesheet" href="${pageContext.request.contextPath}/themes/icon.css" type="text/css"></link>
   		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
   		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
-  		<script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_TW.js"></script>
+  		<script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
     
     
   </head>
